@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Club Information</title>
+    <style>
+        body {
+            text-align: center;
+            font-family:'Times New Roman', Times, serif;
+            margin-top: 50px;
+        }
+        select {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px;
+            width: 350px;
+        }
+        .club-info {
+            display: none; /* hide by default */
+            text-align: left;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 350px;
+            background-color: #f9f9f9;
+        }
+        .info-label {
+            font-weight: bold;
+        }
+        .navbar {
+            background-image: url(https://i.pinimg.com/1200x/16/2f/5e/162f5ecad22b20dbafea4d4c173590da.jpg);
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>School Club Information</h2>
+
+    <label>Select a club:</label>
+    <select id="club" onchange="showClubInfo()">
+        <option value="">-- Select a Club --</option>
+        <option value="Marching Band">Marching Band</option>
+        <option value="Glee Club">Glee Club</option>
+        <option value="Dance Club">Dance Club</option>
+        <option value="Math Club">Math Club</option>
+        <option value="Science Club">Science Club</option>
+        <option value="Communications Arts Club">Communications Arts Club</option>
+        <option value="COCC">COCC (Cadet Officer Candidate Course)</option>
+        <option value="Social Science Club">Social Science Club</option>
+        <option value="Volleyball Varsity">Volleyball Varsity</option>
+        <option value="Basketball Varsity">Basketball Varsity</option>
+    </select>
+
+    <!-- Club info divs -->
+    <div id="Marching Band" class="club-info">
+        <p><span class="info-label">Club Name:</span> Marching Band</p>
+        <p><span class="info-label">Moderator:</span> Mr. Emilio Alumno</p>
+        <p><span class="info-label">Meeting Time:</span> Tuesday and Wednesday 03:00-04:30 PM</p>
+        <p><span class="info-label">Venue:</span> Band Room</p>
+    </div>
+
+    <div id="Glee Club" class="club-info">
+        <p><span class="info-label">Club Name:</span> Glee Club</p>
+        <p><span class="info-label">Moderator:</span> Mr. Denver Martin</p>
+        <p><span class="info-label">Meeting Time:</span> Monday 03:00-05:00 PM</p>
+        <p><span class="info-label">Venue:</span> High School Music Room</p>
+    </div>
+
+    <div id="Dance Club" class="club-info">
+        <p><span class="info-label">Club Name:</span> Dance Club</p>
+        <p><span class="info-label">Moderator:</span> Mr. Alfred Cases</p>
+        <p><span class="info-label">Meeting Time:</span> Tuesday 03:00-05:00 PM</p>
+        <p><span class="info-label">Venue:</span> Teatro Preciosa</p>
+    </div>
+
+    <div id="Math Club" class="club-info">
+        <p><span class="info-label">Club Name:</span> Math Club</p>
+        <p><span class="info-label">Moderator:</span> Mr. Nicole Gabuya</p>
+        <p><span class="info-label">Meeting Time:</span> Monday 02:30-03:00 PM</p>
+        <p><span class="info-label">Venue:</span> Room 404</p>
+    </div>
+
+    <div id="Science Club" class="club-info">
+        <p><span class="info-label">Club Name:</span> Science Club</p>
+        <p><span class="info-label">Moderator:</span> Ms. Jameelyn Maramag</p>
+        <p><span class="info-label">Meeting Time:</span> Tuesday 03:00-04:00 PM</p>
+        <p><span class="info-label">Venue:</span> Room 404</p>
+    </div>
+
+    <div id="Communications Arts Club" class="club-info">
+        <p><span class="info-label">Club Name:</span> Communications Arts Club</p>
+        <p><span class="info-label">Moderator:</span> Ms. Yannis Fernandez</p>
+        <p><span class="info-label">Meeting Time:</span> Wednesday 03:00-04:00 PM, Friday 03:00-04:00 PM</p>
+        <p><span class="info-label">Venue:</span> Room 406</p>
+    </div>
+
+    <div id="COCC" class="club-info">
+        <p><span class="info-label">Club Name:</span> COCC (Cadet Officer Candidate Course)</p>
+        <p><span class="info-label">Moderator:</span> SSgt. Jemima David PA (Res)</p>
+        <p><span class="info-label">Meeting Time:</span> Wednesday 02:30-04:30 PM</p>
+        <p><span class="info-label">Venue:</span> Quadrangle/Teatro Preciosa</p>
+    </div>
+
+    <div id="Social Science Club" class="club-info">
+        <p><span class="info-label">Club Name:</span> Social Science Club</p>
+        <p><span class="info-label">Moderator:</span> Mr. Roberto Lim</p>
+        <p><span class="info-label">Meeting Time:</span> Tuesday 03:00-04:00 PM</p>
+        <p><span class="info-label">Venue:</span> Room 409</p>
+    </div>
+
+    <div id="Volleyball Varsity" class="club-info">
+        <p><span class="info-label">Club Name:</span> Volleyball Varsity</p>
+        <p><span class="info-label">Moderator:</span> Mr. Adrian Ruiz</p>
+        <p><span class="info-label">Meeting Time:</span> Wednesday 03:00-04:00 PM</p>
+        <p><span class="info-label">Venue:</span> Quadrangle</p>
+    </div>
+
+    <div id="Basketball Varsity" class="club-info">
+        <p><span class="info-label">Club Name:</span> Basketball Varsity</p>
+        <p><span class="info-label">Moderator:</span> Mr. Adrian Ruiz</p>
+        <p><span class="info-label">Meeting Time:</span> Monday 03:00-04:00 PM</p>
+        <p><span class="info-label">Venue:</span> Quadrangle</p>
+    </div>
+
+    <script>
+        function showClubInfo() {
+            var select = document.getElementById("club");
+            var value = select.value;
+
+            // Hide all club-info divs
+            var infos = document.getElementsByClassName("club-info");
+            for (var i = 0; i < infos.length; i++) {
+                infos[i].style.display = "none";
+            }
+
+            // Show the selected club info
+            if (value) {
+                var div = document.getElementById(value);
+                if(div) div.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
